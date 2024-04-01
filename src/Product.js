@@ -2,6 +2,7 @@ import React from 'react'
 import './Product.css';
 import {useStateValue} from "./StateProvider";
 import Zoom from 'react-reveal/Zoom';
+import {Link} from "react-router-dom";
 function Product({id,title,image,price,rating}) {
   const [{basket},dispatch]=useStateValue();
  
@@ -37,6 +38,14 @@ function Product({id,title,image,price,rating}) {
 
         </div>
         <img  src={image} alt="" />
+        <Link to={{
+    pathname: '/productdetails',
+    state: { 
+       data: {id,title,image,price,rating}
+    },
+  }}>  
+          <p className='view_details'>View Details</p>
+        </Link>
         <button onClick={addToBasket}>Add to Basket</button>
     </div></Zoom>
   )

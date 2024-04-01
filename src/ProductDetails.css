@@ -45,8 +45,3 @@
 .product_rating{
     display: flex;
 } 
-.view_details{
-    margin-top: 5px;
-    color: #111;
-    font-weight: 600;
-}
