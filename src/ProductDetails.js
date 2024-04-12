@@ -9,6 +9,9 @@ function ProductDetails() {
     const rating=location.state.data.rating
     const image=location.state.data.image
     const id=location.state.data.id
+    const discription=location.state.data.discription
+    const cat_id=location.state.data.cat_id
+    const stocks=location.state.data.stocks
     const [{basket},dispatch]=useStateValue();
  
     const addToBasket=()=>{
@@ -26,10 +29,12 @@ function ProductDetails() {
       return (
         <div className='product'>
         <div className='product_info'>
-            <p> {title}</p>
+            <p className='product_title'> {title}</p>
+            <p>{discription}</p>
             <p className='product_price'>
                 <small>$</small>
                 <strong>{price}</strong>
+                <p>stocks: {stocks}</p>
             </p>
             <div className='product_rating'>
                  {Array(rating).fill().map((_,i)=>(

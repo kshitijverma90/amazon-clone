@@ -45,3 +45,6 @@
 .product_rating{
     display: flex;
 } 
+.product_title{
+    font-weight: bolder;
+}

@@ -10,7 +10,7 @@ function Home() {
     rows.push(
       <div className="home_row">
         {rowproducts.map((item, index) => (
-          <Product key={index} id={item.id} title={item.title} price={item.price} image={item.image} rating={item.rating} />
+          <Product key={index} id={item.id} cat_id={item.cat_id} title={item.title} discription={item.discription} price={item.price} image={item.image} rating={item.rating} stocks={item.stocks}  />
         ))}
       </div>
     );
