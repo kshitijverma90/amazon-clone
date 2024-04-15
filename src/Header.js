@@ -23,13 +23,26 @@ function Header() {
     //     category_id:e.target.value
     // })
     //.then (res=>{
-        dispatch({
-            type :"CHANGE_CATEGORY",
-            item:{
-              category_id:e.target.value
-            },
-          });
+        // dispatch({
+        //     type :"CHANGE_CATEGORY",
+        //     item:{
+        //       category_id:e.target.value
+        //     },
+        //   });
     //})
+    console.log('category making calls1')
+        axios.get(`http://127.0.0.1:8080/endpoint?value=${e.target.value}`)
+            .then(response => {
+                console.log(response.data);
+                const l = response.data;
+                console.log(l);
+
+                // Update state with fetched products
+                dispatch({ type: 'SET_PRODUCTS', item: l });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
     
   }
 
@@ -48,9 +61,9 @@ function Header() {
                  <select id="fruitDropdown" onChange={optionselected}>
                     <option value="1">All</option>
                     <option value="2">Electronics</option>
-                    <option value="3">Groceries</option>
-                    <option value="4">Domestics</option>
-                    <option value="5">Vegetables</option>
+                    <option value="3">Furniture</option>
+                    <option value="4">Books</option>
+                    {/* <option value="5">Vegetables</option> */}
                 </select>
              </div>
          <div className='header_nav'>
